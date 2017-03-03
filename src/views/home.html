@@ -7,49 +7,50 @@
 </div>
 <table id="tableau" border="2" cellpadding="10" cellspacing="1">
   <tr>
-      <th width="10%" align="center">Fait ?
+      <th width="10%" align="center" class="empty txt-r">Fait ?
        <br />
          <button ng-click="life.orderfait='-fait'" ng-if="life.orderfait == '+fait'"class="btn btn-defaut"/><i class="fa fa-remove"></i>
          <button ng-click="life.orderfait='+fait'" ng-if="life.orderfait == '-fait'"class="btn btn-defaut"/><i class="fa fa-check"></i>
      </th>
-      <th width="10%" align="center">Travail distibué le:
+      <th width="10%" align="center">Travail distibué le
        <br />
          <button ng-click="life.order='+date'"class="btn btn-defaut"/><i class="fa fa-arrow-down"></i></button>
          <button ng-click="life.order='-date'"class="btn btn-defaut"/><i class="fa fa-arrow-up"></i></button>
      </th>
-      <th width="20%" align="center">Matière:
+      <th width="20%" align="center">Matière
        <br />
-        <input  type="text" value="" ng-model="life.keyword"/> </th>
+        <input  type="text" value="" ng-model="life.keyword" placeholder="rechercher..."/> </th>
 
-      <th width="20%" align="left">À faire pour le:
+      <th width="20%" align="left">À faire pour le
         <br />
           <button ng-click="life.order='+datefin'"class="btn btn-defaut"/><i class="fa fa-arrow-down"></i></button>
           <button ng-click="life.order='-datefin'"class="btn btn-defaut"/><i class="fa fa-arrow-up"></i></button>
      </th>
-      <th with="10%" align="center"> Supprimer ? </th>
+      <th with="10%" align="center" class="empty"></th>
     </tr>
 
     <tr ng-repeat="item in liste | filter: life.keyword | orderBy:life.order | orderBy:life.orderfait">
-       <td> <input type="checkbox" class="button" name="choix1" value="1" ng-model="item.fait"></td>
+       <td class="empty txt-r"> <input type="checkbox" class="button" name="choix1" value="1" ng-model="item.fait"></td>
        <td ng-class="{'fait':item.fait}">{{moment(item.date).format('ddd DD MMM YYYY')}}</td>
        <td ng-class="{'fait':item.fait}">{{item.matiere}}</td>
        <td ng-class="{'fait':item.fait}">{{moment(item.datefin).format('ddd DD MMM YYYY')}}</td>
-       <td>
+       <td class="empty txt-l">
          <button  ng-if="item.fait" type="button" ng-click="supprimer(item)" class="btn btn-remove">
            <i class="fa fa-remove"></i>
+         </button>
 
       </td>
     </tr>
     <tr my-enter="ajouter()">
-      <th width="10%" align="center"></th>
+      <th width="10%" align="center" class="empty"></th>
       <th width="20%" align="center">
         <input ng-model="date" type="text" id="rowText" placeholder="JJ/MM/YYYY">
       </th>
-      <th width="20%" align="center"><input ng-model="matiere" type="text" id="rowText1"></th>
+      <th width="20%" align="center"><input ng-model="matiere" type="text" id="rowText1" placeholder="entrer une matière"></th>
       <th width="30%" align="left">
         <input ng-model="datefin" type="text" id="rowText" placeholder="JJ/MM/YYYY">
       </th>
-      <th>
+      <th class="empty">
         <button ng-click="ajouter()" type="button" ng-show="date!=undefined && matiere!=undefined && datefin!=undefined" class="btn btn-add">
           <i class="fa fa-folder-open" aria-hidden="true"></i>
         </button>
@@ -58,4 +59,4 @@
   </table>
 
 <br><br>
-<a href="" ng-click="clear()" type="button" class="btn2"  >vider</a>
+<a href="" ng-click="clear()" type="button" class="btn2"  >vider <i class="fa fa-trash"></i></a>
