@@ -1,9 +1,9 @@
 {
-  "name": "feather-front",
+  "name": "agendaV2",
   "private": true,
   "version": "1.0.0",
   "description": "A Feathers front app",
-  "author": "louis.perrin@gmail.com",
+  "author": "julien / nathan / joris",
   "license": "ISC",
   "main": "index.js",
   "scripts": {
