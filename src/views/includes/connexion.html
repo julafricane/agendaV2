@@ -1,0 +1,10 @@
+<h3>Login or register</h3>
+<label for="username">email</label><br>
+<input type="email" ng-model="new.email"><br>
+<label for="username">password</label><br>
+<input type="password" ng-model="new.password"><br>
+<br>
+<p>{{new.email}} - {{new.password}}</p>
+<br>
+<a href="" ng-click="auth.register(new)">REGISTER</a><br>
+<a href="" ng-click="auth.login(new)">LOGIN</a><br>
